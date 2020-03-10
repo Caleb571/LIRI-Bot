@@ -10,7 +10,23 @@ var keys = require('./Keys.js');
 
 
 
-var spotify = new Spotify(keys.spotifyKeys); 
+
+
+
+
+
+
+
+
+var spotify = new Spotify(keys.spotify); 
+
+//var movie = new Movie(keys.movieKey);
+
+
+
+
+
+ 
 
 var getSongs = function(song) {
 
@@ -34,6 +50,7 @@ var getSongs = function(song) {
 
         console.log(i);
 
+        //console.log(songs);
 
     console.log("Artist: " + data.tracks.items[i].album.artists[i].name);
 
@@ -41,8 +58,15 @@ var getSongs = function(song) {
 
     console.log("Release Date: " + data.tracks.items[i].album.release_date);
 
-    console.log("Links: " + data.tracks.items[i].preview_url);  
+    console.log("Links: " + data.tracks.items[i].preview_url);
+
+        
+
     }
+
+
+
+    
 
   });
 
@@ -52,7 +76,13 @@ var getSongs = function(song) {
 
   var getMovie = function(movieName) {
 
+
+
   var queryUrl = "http://www.omdbapi.com/?t=" + movieName + "&y=&plot=short&apikey=3ce0af1c";
+
+
+
+
 
 axios.get(queryUrl).then(
 
@@ -88,9 +118,13 @@ axios.get(queryUrl).then(
 
     } else if (error.request) {
 
+   
+
       console.log(error.request);
 
     } else {
+
+
 
       console.log("Error", error.message);
 
@@ -111,6 +145,8 @@ fs.readFile('text.txt', 'utf8', function (err, data) {
     console.log(data);
 
 });
+
+
 
 var focus = function(inputTopic, inputFunction) {
 
@@ -145,3 +181,5 @@ var liriFind = function(One, Two) {
 
 
 liriFind(process.argv[2], process.argv[3]);
+
+    
